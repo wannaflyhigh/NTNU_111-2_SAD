@@ -52,6 +52,7 @@ export default function Marketplace() {
 		//Fetch all the details of every NFT from the contract and display
 		const items = await Promise.all(transaction.map(async i => {
 			var tokenURI = await contract.uri(i.tokenId);
+			console.log(i.tokenId)
 			console.log("getting this tokenUri", tokenURI);
 			tokenURI = GetIpfsUrlFromPinata(tokenURI);
 			let meta = await axios.get(tokenURI);
